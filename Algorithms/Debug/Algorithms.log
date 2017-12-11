@@ -1,0 +1,5 @@
+﻿  Source.cpp
+c:\users\s178022\documents\visual studio 2015\projects\codedesignanddatastructures\algorithms\source.cpp(23): warning C4838: conversion from 'double' to 'int' requires a narrowing conversion
+c:\users\s178022\documents\visual studio 2015\projects\codedesignanddatastructures\algorithms\source.cpp(23): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Algorithms.vcxproj -> c:\users\s178022\documents\visual studio 2015\Projects\CodeDesignAndDataStructures\Debug\Algorithms.exe
+  Algorithms.vcxproj -> c:\users\s178022\documents\visual studio 2015\Projects\CodeDesignAndDataStructures\Debug\Algorithms.pdb (Partial PDB)
