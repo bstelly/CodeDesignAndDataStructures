@@ -1,4 +1,3 @@
-﻿  ConnectFour.cpp
-c:\users\s178022\documents\visual studio 2015\projects\codedesignanddatastructures\connectfour\connectfour.cpp(88): warning C4715: 'ConnectFour::CheckVictory': not all control paths return a value
+﻿  Source.cpp
   ConnectFour.vcxproj -> C:\Users\s178022\Documents\Visual Studio 2015\Projects\CodeDesignAndDataStructures\Debug\ConnectFour.exe
   ConnectFour.vcxproj -> C:\Users\s178022\Documents\Visual Studio 2015\Projects\CodeDesignAndDataStructures\Debug\ConnectFour.pdb (Partial PDB)

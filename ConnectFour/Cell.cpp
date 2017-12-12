@@ -2,7 +2,7 @@
 
 Cell::Cell()
 {
-	m_Token = '\n';
+	m_Token = ' ';
 }
 
 Cell::Cell(char token)
@@ -12,7 +12,7 @@ Cell::Cell(char token)
 
 bool Cell::operator==(Cell& other)
 {
-	if (m_Token == '\0' || other.m_Token == '\0')
+	if (m_Token == ' ' || other.m_Token == ' ')
 	{
 		return false;
 	}

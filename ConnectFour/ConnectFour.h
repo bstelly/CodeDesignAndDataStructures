@@ -13,4 +13,6 @@ public:
 	bool Update();
 	bool PlacePiece(int col);
 	bool CheckVictory();
+	void DisplayBoard();
+	void StartUp();
 };
