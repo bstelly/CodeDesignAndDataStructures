@@ -20,12 +20,6 @@ bool Column::PlaceToken(char token)
 		m_Cells[m_LastOccupied] = token;
 		return true;
 	}
-	else
-	{
-		std::cout << "There are no spaces available. Please choose another column\n";
-		system("pause");
-		return false;
-	}
 }
 
 bool Column::IsFull()

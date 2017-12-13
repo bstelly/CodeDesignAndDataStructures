@@ -10,7 +10,7 @@ ConnectFour::ConnectFour(int numCols, int colHeights)
 	m_Columns = new Column[numCols];
 	m_NumCols = numCols;
 	m_ColHeights = colHeights;
-	for(int i = 0; i <= m_NumCols; i++)
+	for (int i = 0; i <= m_NumCols; i++)
 	{
 		m_Columns[i] = Column(m_ColHeights);
 	}
@@ -33,22 +33,27 @@ bool ConnectFour::Update()
 		m_ActiveToken = (player == 1) ? 'O' : 'X';
 		std::cout << "Player " << m_ActiveToken << " it is your turn. Select a column\n";
 		std::cin >> input;
-		while(input > m_NumCols - 1)
+		while (input > m_NumCols - 1)
 		{
 			std::cout << "The number you inputted does not correspond to a column\n";
 			std::cout << "Select a column\n";
 			std::cin >> input;
 		}
+		while (m_ColHeights == m_Columns[input].m_LastOccupied + 1)
+		{
+			std::cout << "There are no spaces available. Please choose another column\n";
+			std::cin >> input;
+		}
 		PlacePiece(input);
 		player++;
 		system("cls");
-	
+
 	}
 	std::cout << "Would you like to play again?\n";
 	std::cout << "( 1 ) Yes	( 2 ) No\n";
 	int playAgain;
 	std::cin >> playAgain;
-	if(playAgain == 1)
+	if (playAgain == 1)
 	{
 		return true;
 	}
@@ -65,14 +70,14 @@ bool ConnectFour::CheckVictory()
 			if ((m_Columns[i].m_Cells[j] == m_Columns[i + 1].m_Cells[j] &&
 				m_Columns[i + 1].m_Cells[j] == m_Columns[i + 2].m_Cells[j] &&
 				m_Columns[i + 2].m_Cells[j] == m_Columns[i + 3].m_Cells[j]) ||
-			//Check Vertical Win
+				//Check Vertical Win
 				(m_Columns[i].m_Cells[j] == m_Columns[i].m_Cells[j + 1] &&
-				m_Columns[i].m_Cells[j + 1] == m_Columns[i].m_Cells[j + 2] &&
-				m_Columns[i].m_Cells[j + 2] == m_Columns[i].m_Cells[j + 3]) ||
-			//Check Diagonal Wins
-				(m_Columns[i].m_Cells[j] == m_Columns[i + 1].m_Cells[j + 1] &&
-				m_Columns[i + 1].m_Cells[j + 1] == m_Columns[i + 2].m_Cells[j + 2] &&
-				m_Columns[i + 2].m_Cells[j + 2] == m_Columns[i + 3].m_Cells[j + 3]))
+					m_Columns[i].m_Cells[j + 1] == m_Columns[i].m_Cells[j + 2] &&
+					m_Columns[i].m_Cells[j + 2] == m_Columns[i].m_Cells[j + 3]) ||
+				//Check Diagonal Wins
+					(m_Columns[i].m_Cells[j] == m_Columns[i + 1].m_Cells[j + 1] &&
+						m_Columns[i + 1].m_Cells[j + 1] == m_Columns[i + 2].m_Cells[j + 2] &&
+						m_Columns[i + 2].m_Cells[j + 2] == m_Columns[i + 3].m_Cells[j + 3]))
 			{
 				DisplayBoard();
 				std::cout << "Player " << m_ActiveToken << " Wins" << std::endl;
@@ -83,12 +88,12 @@ bool ConnectFour::CheckVictory()
 			}
 		}
 	}
-			//Continue checking for diagonal wins
-	for(int i = 3; i < m_NumCols; i++)
+	//Continue checking for diagonal wins
+	for (int i = 3; i < m_NumCols; i++)
 	{
 		for (int j = 0; j < m_ColHeights; j++)
 		{
-			if(m_Columns[i].m_Cells[j] == m_Columns[i - 1].m_Cells[j - 1] &&
+			if (m_Columns[i].m_Cells[j] == m_Columns[i - 1].m_Cells[j - 1] &&
 				m_Columns[i - 1].m_Cells[j - 1] == m_Columns[i - 2].m_Cells[j - 2] &&
 				m_Columns[i - 2].m_Cells[j - 2] == m_Columns[i - 3].m_Cells[j - 3])
 			{
@@ -145,14 +150,14 @@ void ConnectFour::DisplayBoard()
 
 void ConnectFour::StartUp()
 {
-	for(int i = 0; i < m_NumCols; i++)
+	for (int i = 0; i < m_NumCols; i++)
 	{
 		for (int j = 0; j < m_ColHeights; j++)
 		{
 			m_Columns[i].m_Cells[j].m_Token = ' ';
 		}
 	}
-	for(int i = 0; i < m_NumCols; i++)
+	for (int i = 0; i < m_NumCols; i++)
 	{
 		m_Columns[i].m_LastOccupied = -1;
 	}
