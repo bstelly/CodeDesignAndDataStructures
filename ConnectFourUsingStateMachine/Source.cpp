@@ -5,9 +5,8 @@ int main()
 {
 	ConnectFour game(7, 6);
 	bool playGame = true;
-	while (playGame == true)
+	while(playGame == true)
 	{
-
 		playGame = game.Update();
 	}
 }

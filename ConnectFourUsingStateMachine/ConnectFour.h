@@ -20,5 +20,5 @@ public:
 	void UpdatePlayerOne();
 	void UpdateCheckVictory();
 	void UpdatePlayerTwo();
-	void UpdateGameOver();
+	bool UpdateGameOver();
 };
