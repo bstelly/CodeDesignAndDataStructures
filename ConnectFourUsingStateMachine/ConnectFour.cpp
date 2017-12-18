@@ -199,9 +199,13 @@ void ConnectFour::UpdatePlayerOne()
 		std::cout << "Select a column\n";
 		std::cin >> input;
 	}
+	while (m_ColHeights == m_Columns[input].m_LastOccupied + 1)
+	{
+		std::cout << "There are no spaces available. Please choose another column\n";
+		std::cin >> input;
+	}
 	PlacePiece(input);
 	m_State = eState::CHECKVICTORY;
-
 }
 
 void ConnectFour::UpdatePlayerTwo()
@@ -218,7 +222,11 @@ void ConnectFour::UpdatePlayerTwo()
 		std::cout << "Select a column\n";
 		std::cin >> input;
 	}
+	while (m_ColHeights == m_Columns[input].m_LastOccupied + 1)
+	{
+		std::cout << "There are no spaces available. Please choose another column\n";
+		std::cin >> input;
+	}
 	PlacePiece(input);
 	m_State = eState::CHECKVICTORY;
-
 }
