@@ -91,7 +91,18 @@ public:
 	//is returned
 	bool Search(const Type &rhs) const
 	{
-
+		NodeType<Type> *temp = first;
+		int counter = 0;
+		while(counter <= count)
+		{
+			if(temp->info == rhs)
+			{
+				return true;
+			}
+			counter++;
+			temp = temp->link;
+		}
+		return false;
 	}
 
 	//Function to insert newItem at the beginning of the list
@@ -100,7 +111,7 @@ public:
 	//by one
 	void InsertFirst(const Type &rhs)
 	{
-		NodeType<Type>
+
 	}
 
 	//Function to insert newItem at the end of the list
@@ -165,6 +176,8 @@ private:
 	//Postcondition: a copy of otherList is created and assigned to this list
 	void CopyList(const LinkedListType<Type> &rhs)
 	{
+		LinkedListType<Type>* temp;
+		LinkedListIterator<Type> iter;
 
 	}
 };

@@ -11,5 +11,5 @@ int main()
 	b.link = &c;
 	c.link = &d;
 	d.link = NULL;
-	LinkedListIterator<int> iter = LinkedListIterator<int>(&a);
+	LinkedListIterator<int> iter = LinkedListIterator<int>(&c);
 }
