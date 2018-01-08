@@ -111,7 +111,11 @@ public:
 	//by one
 	void InsertFirst(const Type &rhs)
 	{
-
+		NodeType<Type>* newItem;
+		newItem->info = rhs;
+		newItem->link = first;
+		first = newItem;
+		count += 1;
 	}
 
 	//Function to insert newItem at the end of the list
@@ -119,7 +123,12 @@ public:
 	//list, last points to the last node in the list and count is incremented by one
 	void InsertLast(const Type &rhs)
 	{
-
+		NodeType<Type>* newItem;
+		newItem->info = rhs;
+		newItem->link = NULL;
+		last = newItem;
+		last->link = NULL;
+		count += 1;
 	}
 
 	//Function to delete deleteItem from the list
