@@ -1,5 +1,7 @@
 #include "NodeType.h"
 #include "LinkedListIterator.h"
+#include "LinkedListType.h"
+#include <iostream>
 
 int main()
 {
@@ -12,4 +14,11 @@ int main()
 	c.link = &d;
 	d.link = NULL;
 	LinkedListIterator<int> iter = LinkedListIterator<int>(&c);
+	LinkedListType<int>* list = new LinkedListType<int>;
+	list->IsEmptyList();
+	list->InsertFirst(10);
+	list->InsertFirst(50);
+	list->InsertLast(60);
+	LinkedListType<int>* otherList = new LinkedListType<int>;
+	otherList->CopyList(*list);
 }
