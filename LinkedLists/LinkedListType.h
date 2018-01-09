@@ -111,7 +111,7 @@ public:
 	//by one
 	void InsertFirst(const Type &rhs)
 	{
-		NodeType<Type>* newItem;
+		NodeType<Type>* newItem = new NodeType<Type>;
 		newItem->info = rhs;
 		newItem->link = first;
 		first = newItem;
@@ -123,7 +123,7 @@ public:
 	//list, last points to the last node in the list and count is incremented by one
 	void InsertLast(const Type &rhs)
 	{
-		NodeType<Type>* newItem;
+		NodeType<Type>* newItem = new NodeType<Type>;
 		newItem->info = rhs;
 		newItem->link = NULL;
 		last = newItem;
@@ -180,13 +180,19 @@ public:
 
 	}
 
-private:
+//private:
 	//Function to make a copy of otherList
 	//Postcondition: a copy of otherList is created and assigned to this list
 	void CopyList(const LinkedListType<Type> &rhs)
 	{
-		LinkedListType<Type>* temp;
-		LinkedListIterator<Type> iter;
-
+		NodeType<Type>* newNode = new NodeType<Type>;
+		DestroyList();
+		newNode->info = rhs.first->info;
+		first->info = newNode->info;
+		while (first->info != NULL)
+		{
+			InsertFirst(newNode->info);
+			newNode->link = NULL;
+		}
 	}
 };
