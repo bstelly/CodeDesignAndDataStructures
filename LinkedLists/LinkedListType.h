@@ -185,14 +185,15 @@ public:
 	//Postcondition: a copy of otherList is created and assigned to this list
 	void CopyList(const LinkedListType<Type> &rhs)
 	{
-		NodeType<Type>* newNode = new NodeType<Type>;
 		DestroyList();
+		NodeType<Type>* newNode = new NodeType<Type>;
 		newNode->info = rhs.first->info;
-		first->info = newNode->info;
+		InsertFirst(newNode->info);
+		newNode = rhs.first->link;
 		while (first->info != NULL)
 		{
 			InsertFirst(newNode->info);
-			newNode->link = NULL;
+			newNode = newNode->link;
 		}
 	}
 };
