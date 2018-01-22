@@ -20,5 +20,5 @@ int main()
 	list->InsertFirst(50);
 	list->InsertLast(60);
 	LinkedListType<int>* otherList = new LinkedListType<int>;
-	otherList->CopyList(*list);
+	LinkedListType<int> *newList(list);
 }
