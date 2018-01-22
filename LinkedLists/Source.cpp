@@ -21,4 +21,5 @@ int main()
 	list->InsertLast(60);
 	LinkedListType<int>* otherList = new LinkedListType<int>;
 	LinkedListType<int> *newList(list);
+	list->DeleteNode(10);
 }

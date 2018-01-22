@@ -15,7 +15,7 @@ public:
 	//Overload the assignment operator
 	const LinkedListType<Type>& operator=(const LinkedListType<Type> &rhs)
 	{
-
+		CopyList(rhs);
 	}
 
 	//Initialize the list to an empty state
@@ -137,7 +137,33 @@ public:
 	//and counts is decremented by one
 	void DeleteNode(const Type &rhs)
 	{
-
+		NodeType<Type> *current = new NodeType<Type>;
+		NodeType<Type> *last = new NodeType<Type>;
+		NodeType<Type> *next = new NodeType<Type>;
+		if(first->info == rhs)
+		{
+			current = first;
+			first = first->link;
+			delete current;
+			count -= 1;
+		}
+		else
+		{
+			int i = 0;
+			current = first->link;
+			last = first;
+			next = current->link;
+			while (i != count)
+			{
+				if (current->info == rhs)
+				{
+					delete current;
+					last->link = next;
+					count -= 1;
+					break;
+				}
+			}
+		}
 	}
 
 	//Function to return an iterator at the beginning of the linked list
@@ -163,13 +189,15 @@ public:
 	//Postcondition: first = null, last = null, count = 0
 	LinkedListType()
 	{
-
+		first = NULL;
+		last = NULL;
+		count = 0;
 	}
 
 	//Copy constructor
 	LinkedListType(const LinkedListType<Type> &rhs)
 	{
-
+		CopyList(rhs);
 	}
 
 	//Destructor
@@ -177,10 +205,10 @@ public:
 	//Postcondition: the list objects are destroyed
 	~LinkedListType()
 	{
-
+		DestroyList();
 	}
 
-//private:
+private:
 	//Function to make a copy of otherList
 	//Postcondition: a copy of otherList is created and assigned to this list
 	void CopyList(const LinkedListType<Type> &rhs)
