@@ -15,7 +15,7 @@ public:
 	//Overload the assignment operator
 	const LinkedListType<Type>& operator=(const LinkedListType<Type> &rhs)
 	{
-		CopyList(rhs);
+		return CopyList(rhs);
 	}
 
 	//Initialize the list to an empty state

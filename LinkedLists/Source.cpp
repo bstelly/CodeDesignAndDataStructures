@@ -19,7 +19,7 @@ int main()
 	list->InsertFirst(10);
 	list->InsertFirst(50);
 	list->InsertLast(60);
-	LinkedListType<int>* otherList = new LinkedListType<int>;
+	LinkedListType<int>* otherList = list;
 	LinkedListType<int> *newList(list);
 	list->DeleteNode(10);
 }
