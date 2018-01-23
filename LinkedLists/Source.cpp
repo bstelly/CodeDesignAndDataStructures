@@ -24,6 +24,7 @@ int main()
 	list->InsertLast(60);
 	LinkedListType<int>* otherList = list;
 	LinkedListType<int> *newList(list);
+	newList->Print();
 	list->DeleteNode(60);
 	assert(list->Search(10) == true);
 }

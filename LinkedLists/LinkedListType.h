@@ -1,6 +1,6 @@
 #pragma once
 #include "LinkedListIterator.h"
-#include <ostream>
+#include <iostream>
 #include <assert.h>
 
 template<class Type>
