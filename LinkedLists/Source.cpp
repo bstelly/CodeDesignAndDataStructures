@@ -2,6 +2,7 @@
 #include "LinkedListIterator.h"
 #include "LinkedListType.h"
 #include <iostream>
+#include "assert.h"
 
 int main()
 {
@@ -18,8 +19,11 @@ int main()
 	list->IsEmptyList();
 	list->InsertFirst(10);
 	list->InsertFirst(50);
+	list->InsertFirst(70);
+	list->InsertFirst(80);
 	list->InsertLast(60);
 	LinkedListType<int>* otherList = list;
 	LinkedListType<int> *newList(list);
-	list->DeleteNode(10);
+	list->DeleteNode(60);
+	assert(list->Search(10) == true);
 }

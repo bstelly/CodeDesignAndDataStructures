@@ -126,9 +126,23 @@ public:
 		NodeType<Type>* newItem = new NodeType<Type>;
 		newItem->info = rhs;
 		newItem->link = NULL;
-		last = newItem;
-		last->link = NULL;
-		count += 1;
+		if(first == NULL)
+		{
+			first = newItem;
+			last = newItem;
+			count += 1;
+		}
+		else
+		{
+			NodeType<Type> *temp = first;
+			while (temp->link)
+			{
+				temp = temp->link;
+			}
+			temp->link = newItem;
+			count += 1;
+			last = newItem;
+		}
 	}
 
 	//Function to delete deleteItem from the list
@@ -138,8 +152,7 @@ public:
 	void DeleteNode(const Type &rhs)
 	{
 		NodeType<Type> *current = new NodeType<Type>;
-		NodeType<Type> *last = new NodeType<Type>;
-		NodeType<Type> *next = new NodeType<Type>;
+		NodeType<Type> *previous = new NodeType<Type>;
 		if(first->info == rhs)
 		{
 			current = first;
@@ -149,18 +162,21 @@ public:
 		}
 		else
 		{
-			int i = 0;
 			current = first->link;
-			last = first;
-			next = current->link;
-			while (i != count)
+			previous = first;
+			while (current != NULL)
 			{
 				if (current->info == rhs)
 				{
+					previous->link = current->link;
 					delete current;
-					last->link = next;
 					count -= 1;
 					break;
+				}
+				else
+				{
+					previous = previous->link;
+					current = current->link;
 				}
 			}
 		}
