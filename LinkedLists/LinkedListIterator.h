@@ -26,7 +26,7 @@ public:
 
 	//Function to overload the derefrence operator
 	//Description: Return the info contained in the node
-	Type *operator*()
+	Type operator*()
 	{
 		return current->info;
 	}
